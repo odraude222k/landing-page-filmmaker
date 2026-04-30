@@ -1,4 +1,4 @@
-import logoImg from '../assets/logo.jpeg' 
+import logoImg from '../assets/logo_sem_fundo.png' 
 
 export default function Navbar() {
   return (
