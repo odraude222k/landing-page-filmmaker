@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import logoImg from '../assets/logo_sem_fundo_preta.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -11,7 +12,13 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-7 px-6 lg:px-14 transition-all duration-400 ${scrolled ? 'bg-brand-offwhite border-b border-brand-border' : 'bg-transparent'}`}>
-      <a href="#" className="font-display text-lg tracking-[0.08em] text-brand-black relative z-10 uppercase">
+     <a href="#" className="flex items-center gap-3 relative z-10 group">
+        <img 
+          src={logoImg} 
+          alt="Logo Taciana Oliveira" 
+          // w-8 e h-8 definem o tamanho (cerca de 32px). Pode aumentar para w-10 h-10 se achar pequeno.
+          className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110" 
+        />
         Taciana <span className="italic font-light normal-case">Ferreira</span>
       </a>
       

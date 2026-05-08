@@ -16,7 +16,8 @@ export default function About() {
         <p className="text-[17px] leading-[1.8] text-brand-mid font-light reveal reveal-delay-2">
           Acredito que o audiovisual é uma das linguagens mais poderosas para contar histórias com verdade. Com base no Brasil, combino técnica apurada com sensibilidade para criar imagens que ficam na memória.
         </p>
-        
+
+        {/*
         <div className="flex flex-wrap gap-12 pt-6 border-t border-brand-border mt-4 reveal reveal-delay-3">
           <div>
             <div className="font-display text-[42px] font-light tracking-[-0.02em] leading-none text-brand-black">60+</div>
@@ -31,6 +32,7 @@ export default function About() {
             <div className="font-mono text-[10px] tracking-[0.12em] uppercase text-brand-mid mt-2">Prémios</div>
           </div>
         </div>
+        */}
       </div>
     </section>
   );
