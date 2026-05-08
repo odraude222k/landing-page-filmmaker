@@ -15,9 +15,11 @@ export default function Contact() {
         </p>
         
         <div className="flex flex-col gap-4 pt-4 reveal reveal-delay-3">
+          {/*
           <a href="mailto:taciana@email.com" className="font-mono text-[12px] tracking-[0.1em] uppercase text-brand-black flex items-center gap-3 transition-all hover:gap-5 before:content-['→'] before:text-[14px] before:text-brand-mid">taciana@email.com</a>
-          <a href="https://instagram.com" target="_blank" rel="noreferrer" className="font-mono text-[12px] tracking-[0.1em] uppercase text-brand-black flex items-center gap-3 transition-all hover:gap-5 before:content-['→'] before:text-[14px] before:text-brand-mid">@taciana.filmmaker</a>
-          <a href="tel:+5511999999999" className="font-mono text-[12px] tracking-[0.1em] uppercase text-brand-black flex items-center gap-3 transition-all hover:gap-5 before:content-['→'] before:text-[14px] before:text-brand-mid">+55 (11) 99999-9999</a>
+          */}
+          <a href="https://www.instagram.com/taciana.dk?igsh=MTk4aXFnZzl5ZWk2dg==" target="_blank" rel="noreferrer" className="font-mono text-[12px] tracking-[0.1em] uppercase text-brand-black flex items-center gap-3 transition-all hover:gap-5 before:content-['→'] before:text-[14px] before:text-brand-mid">@taciana.dk</a>
+          <a href="https://wa.me/553588247820?text=Olá%20Taciana,%20vim%20pelo%20seu%20site%20e%20gostaria%20de%20fazer%20um%20orçamento!" target="_blank" className="font-mono text-[12px] tracking-[0.1em] uppercase text-brand-black flex items-center gap-3 transition-all hover:gap-5 before:content-['→'] before:text-[14px] before:text-brand-mid">+55 35 8824-7820</a>
         </div>
       </div>
 
