@@ -33,7 +33,9 @@ function App() {
 
   return (
     <div className="bg-brand-offwhite text-brand-black font-display font-light min-h-screen overflow-x-hidden">
-      <Cursor />
+      <div className="hidden md:block">
+        <Cursor />
+      </div>
       <Navbar />
       
       <main>
