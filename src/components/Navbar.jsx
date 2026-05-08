@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-7 px-6 lg:px-14 transition-all duration-400 ${scrolled ? 'bg-brand-offwhite border-b border-brand-border' : 'bg-transparent'}`}>
       <a href="#" className="font-display text-lg tracking-[0.08em] text-brand-black relative z-10 uppercase">
-        Taciana <span className="italic font-light normal-case">Oliveira</span>
+        Taciana <span className="italic font-light normal-case">Ferreira</span>
       </a>
       
       <ul className="hidden md:flex gap-10 relative z-10">
