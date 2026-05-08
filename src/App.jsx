@@ -6,6 +6,11 @@ import Marquee from './components/Marquee';
 import Works from './components/Works';
 import Services from './components/Services';
 import About from './components/About';
+// NOVOS IMPORTS
+import Process from './components/Process';
+import Testimonials from './components/Testimonials';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   useEffect(() => {
@@ -37,7 +42,11 @@ function App() {
         <Works />
         <Services />
         <About />
+        <Process />
+        <Contact />
       </main>
+      
+      <Footer />
     </div>
   );
 }
