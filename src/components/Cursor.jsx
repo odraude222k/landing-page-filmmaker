@@ -17,6 +17,7 @@ export default function Cursor() {
     };
 
     const animateRing = () => {
+      // O fator 0.12 é o que dá aquele efeito de "atraso" elástico no círculo
       ringX += (mouseX - ringX) * 0.12;
       ringY += (mouseY - ringY) * 0.12;
       if (ringRef.current) {
@@ -37,8 +38,16 @@ export default function Cursor() {
 
   return (
     <>
-      <div ref={cursorRef} className="fixed w-2 h-2 bg-brand-black rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-100" />
-      <div ref={ringRef} className="fixed w-9 h-9 border border-brand-black rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-200 opacity-50 mix-blend-difference" />
+      <div 
+        ref={cursorRef} 
+        className="fixed w-2 h-2 bg-brand-black rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2" 
+      />
+      
+      <div 
+        id="cursor-ring" 
+        ref={ringRef} 
+        className="fixed w-9 h-9 border border-brand-black rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 opacity-50 transition-[width,height,opacity] duration-300 ease-out" 
+      />
     </>
   );
 }

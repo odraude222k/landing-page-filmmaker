@@ -38,3 +38,15 @@ body { cursor: none; }
   opacity: 1;
   transform: translateY(0);
 }
+
+* {
+  cursor: none !important;
+}
+
+/* Faz a bolinha do cursor crescer quando o mouse estiver sobre um link ou botão */
+body:has(a:hover) #cursor-ring,
+body:has(button:hover) #cursor-ring {
+  width: 56px;
+  height: 56px;
+  opacity: 0.3;
+}
