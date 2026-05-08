@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="bg-brand-dark p-12 lg:p-[64px_56px] flex flex-col md:flex-row items-center justify-between gap-8 border-t border-brand-offwhite/10">
       <div className="font-display text-[20px] font-light text-brand-offwhite tracking-[0.05em] uppercase">
-        Taciana <em className="italic font-light normal-case">Oliveira</em>
+        Taciana <em className="italic font-light normal-case">Ferreira</em>
       </div>
       
       <ul className="flex gap-8 list-none">
