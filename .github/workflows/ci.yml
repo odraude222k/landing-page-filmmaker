@@ -1,4 +1,4 @@
-name: Pipeline de Teste e Build
+name: Pipeline Completa (CI/CD)
 
 on:
   push:
@@ -6,25 +6,71 @@ on:
   pull_request:
     branches: [ "main", "master" ]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
-  integracao:
+  lint:
+    name: Lint (ESLint)
     runs-on: ubuntu-latest
-
     steps:
-    - name: Clonar o repositório
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+      - run: npm ci
+      - run: npm run lint
 
-    - name: Configurar o Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
+  test:
+    name: Testes (Vitest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+      - run: npm ci
+      - run: npm run test
 
-    - name: Instalar dependências
-      run: npm ci
+  build:
+    name: Build (Vite)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+      - run: npm ci
+      - run: npm run build
 
-    - name: Rodar testes unitario
-      run: npm run test
+  # ==========================================
+  # JOBS FUTUROS (DESATIVADOS TEMPORARIAMENTE)
+  # ==========================================
 
-    - name: Testar o Build do projeto
-      run: npm run build
+  # 4. Preview para Pull Requests
+  # preview:
+  #   name: Deploy Preview (Vercel)
+  #   needs: [lint, test, build]
+  #   if: github.event_name == 'pull_request' 
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Deploy to Vercel Preview
+  #       uses: amondnet/vercel-action@v25
+  #       with:
+  #         vercel-token: ${{ secrets.VERCEL_TOKEN }}
+  #         vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+  #         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+
+  # 5. Deploy para Produção
+  # deploy:
+  #   name: Deploy Produção (Vercel)
+  #   needs: [lint, test, build]
+  #   if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Deploy to Vercel Production
+  #       uses: amondnet/vercel-action@v25
+  #       with:
+  #         vercel-token: ${{ secrets.VERCEL_TOKEN }}
+  #         vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+  #         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+  #         vercel-args: '--prod'
