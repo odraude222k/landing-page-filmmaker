@@ -23,7 +23,7 @@ jobs:
     - name: Instalar dependências
       run: npm ci
 
-    - name: Rodar testes de integração
+    - name: Rodar testes unitario
       run: npm run test
 
     - name: Testar o Build do projeto
