@@ -1,32 +1,26 @@
-import logoImg from '../assets/logo_sem_fundo.png' 
+import { useEffect, useState } from 'react';
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed w-full top-0 z-50 bg-brand-black/90 backdrop-blur-md border-b border-brand-offwhite/10 transition-all duration-300">
-      <div className="w-full px-10 h-24 flex items-center justify-between">
-        
-        <div className="hidden md:flex items-center gap-12">
-          <a href="#about" className="text-sm font-medium text-brand-offwhite/60 hover:text-brand-offwhite uppercase tracking-widest transition-colors">Sobre</a>
-          <a href="#gallery" className="text-sm font-medium text-brand-offwhite/60 hover:text-brand-offwhite uppercase tracking-widest transition-colors">Portfólio</a>
-          <a href="#contact" className="text-sm font-medium text-brand-offwhite/60 hover:text-brand-offwhite uppercase tracking-widest transition-colors">Contato</a>
-        </div>
-
-        <div className="flex items-center gap-6 cursor-pointer group">
-          <div className="flex flex-col text-right leading-none">
-            <span className="text-2xl font-bold tracking-tighter text-brand-offwhite transition-colors">TACIANA</span>
-            <span className="text-xs font-light text-brand-offwhite/50 uppercase tracking-[0.3em]">Filmmaker</span>
-          </div>
-          
-          <div className="w-14 h-14 flex items-center justify-center overflow-hidden">
-            <img 
-              src={logoImg} 
-              alt="Logo Taciana" 
-              className="w-full h-full object-contain filter grayscale brightness-200" 
-            />
-          </div>
-        </div>
-
-      </div>
+    <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-7 px-6 lg:px-14 transition-all duration-400 ${scrolled ? 'bg-brand-offwhite border-b border-brand-border' : 'bg-transparent'}`}>
+      <a href="#" className="font-display text-lg tracking-[0.08em] text-brand-black relative z-10 uppercase">
+        Taciana <span className="italic font-light normal-case">Oliveira</span>
+      </a>
+      
+      <ul className="hidden md:flex gap-10 relative z-10">
+        <li><a href="#works" className="font-mono text-[11px] tracking-[0.12em] uppercase text-brand-mid hover:text-brand-black transition-colors">Trabalhos</a></li>
+        <li><a href="#services" className="font-mono text-[11px] tracking-[0.12em] uppercase text-brand-mid hover:text-brand-black transition-colors">Serviços</a></li>
+        <li><a href="#about" className="font-mono text-[11px] tracking-[0.12em] uppercase text-brand-mid hover:text-brand-black transition-colors">Sobre</a></li>
+        <li><a href="#contact" className="font-mono text-[11px] tracking-[0.12em] uppercase text-brand-mid hover:text-brand-black transition-colors">Contato</a></li>
+      </ul>
     </nav>
-  )
+  );
 }
