@@ -2,9 +2,12 @@ import { useEffect } from 'react';
 import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Marquee from './components/Marquee';
+import Works from './components/Works';
+import Services from './components/Services';
+import About from './components/About';
 
 function App() {
-  // Esse código faz os elementos surgirem suavemente quando aparecem na tela
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
@@ -18,7 +21,6 @@ function App() {
     const reveals = document.querySelectorAll('.reveal');
     reveals.forEach(el => observer.observe(el));
     
-    // Animação imediata do Hero ao carregar a página
     setTimeout(() => {
       document.querySelectorAll('#home .reveal').forEach(el => el.classList.add('visible'));
     }, 100);
@@ -31,6 +33,10 @@ function App() {
       
       <main>
         <Hero />
+        <Marquee />
+        <Works />
+        <Services />
+        <About />
       </main>
     </div>
   );
