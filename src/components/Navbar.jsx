@@ -19,7 +19,7 @@ export default function Navbar() {
         <a href="#" className="flex items-center gap-3 relative z-20 group">
           <img src={logoImg} alt="Logo Taciana Ferreira" className="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110" />
           <span className="font-display text-lg tracking-[0.08em] text-brand-black uppercase">
-            Taciana <span className="italic font-light normal-case">Ferreira</span>
+            Taciana <span className="italic font-light normal-case">Ferreira 123</span>
           </span>
         </a>
 
